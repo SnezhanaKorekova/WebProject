@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center><table class="container" cellpadding="30">
+    <tr class="row">
+        {% for item in products %}
+            <td class="col">
+                <div class="product" style="margin-bottom: 30px">
+                    <div class="image" style="margin-bottom: 10px">
+                        {% if item[3] == "img\\img1.jpg" %}
+                            <img src="../img/img1.jpg" height="400" width="300" style="object-fit: cover; border-radius: 7px">
+                        {% elif item[3] == "img\\img2.jpg"%}
+                            <img src="../img/img2.jpg" height="400" width="300" style="object-fit: cover; border-radius: 7px">
+                        {% elif item[3] == "img\\img3.jpg"%}
+                            <img src="../img/img3.jpg" height="400" width="300" style="object-fit: cover; border-radius: 7px">
+                        {% else %}
+                            <img src="../img/img4.jpg" height="400" width="300" style="object-fit: cover; border-radius: 7px">
+                        {% endif %}
+                    </div>
+
+                    <div class="info">
+                        <h3 style="text-decoration: none; font-weight: 500; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: -15px">{{ item[0] }}</h3>
+                        <h4 style="text-decoration: none; font-weight: 350; font-size: 18px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: 5px">Состав: <small style="opacity: 0.8">{{ item[1] }}</small></h4>
+
+                        <div class="product_info" style="display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center">
+                            <span class="price" style="font-weight: 700; font-size: 18px; font-family:'GraphikTT',Arial,sans-serif">{{ item[2] }}<small style="opacity: 0.9"> ₽</small></span>
+                            <button class="add-to-cart" style="border: none; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background-color: #B0BDED; color: #1240AB; border-radius: 10px; font-size: 25px"><ion-icon name="add"></ion-icon></button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        {% endfor %}
+    </tr>
+</table></center>
+
+<center><hr class="questions" style="border: none; background-color: #1240AB; height: 2px; width: 80%"></center>
+
+<div class="question" style="display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center">
+    <h2 style="color: #1240AB; text-decoration: none; font-weight: 550; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 10%; margin-bottom: 25px">Как ухаживать за вязанными вещами?</h2>
+    <button style="border: none; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background-color: #1240AB; color: #fff; border-radius: 25px; font-size: 25px; margin-right: 10%"><ion-icon name="help-outline"></ion-icon></button>
+</div>
+<h3 style="text-decoration: none; font-weight: 500; font-size: 19px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 0px">- Только ручная стирка</h3>
+<h4 style="text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 20px; margin-top: 15px; line-height: 1.8">При машинной стирке используйте деликатный режим или режим шерсти на 30 градусах.</h4>
+<h3 style="text-decoration: none; font-weight: 500; font-size: 19px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 0px">- Деликатная сушка</h3>
+<h4 style="text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 20px; margin-top: 15px; line-height: 1.8">Рекомендуется сушить изделие на плоской поверхности, а при машинной стирке использовать деликатную сушку при пониженной температуре.</h4>
+<h3 style="text-decoration: none; font-weight: 500; font-size: 19px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 0px">- Моющие стредства</h3>
+<h4 style="text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 20px; margin-top: 15px; line-height: 1.8">Используйте быстрорастворимые или специальные моющие средства. Чтобы ваше изделие не потеряло первоначальный цвет, а волокна оставались такими же прочными, не стоит пользоваться отбеливающими и хлоросодержащими средствами.</h4>
+<h3 style="text-decoration: none; font-weight: 500; font-size: 19px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 0px">- Не гладить</h3>
+<h4 style="text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 20px; margin-top: 15px; line-height: 1.8">При необходимости возможна глажка с особой аккуратностью, т.к. при больших температурах изделие может потерять свою форму и текстуру.</h4>
+
+<center><hr style="border: none; background-color: #1240AB; height: 3px; width: 80%"></center>
+
+<script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script  nomodule  src = "https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"> </script>
+{% endblock %}
