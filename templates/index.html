@@ -3,6 +3,7 @@
 {% block content %}
 <center><table class="container" cellpadding="30">
     <tr class="row">
+        <a name="products"></a>
         {% for item in products %}
             <td class="col">
                 <div class="product" style="margin-bottom: 30px">
@@ -33,7 +34,8 @@
     </tr>
 </table></center>
 
-<center><hr class="questions" style="border: none; background-color: #1240AB; height: 2px; width: 80%"></center>
+<a name="questions"></a>
+<center><hr class="questions" style="border: none; background-color: #1240AB; height: 3px; width: 80%"></center>
 
 <div class="question" style="display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center">
     <h2 style="color: #1240AB; text-decoration: none; font-weight: 550; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 10%; margin-bottom: 25px">Как ухаживать за вязанными вещами?</h2>
@@ -44,11 +46,29 @@
 <h3 style="text-decoration: none; font-weight: 500; font-size: 19px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 0px">- Деликатная сушка</h3>
 <h4 style="text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 20px; margin-top: 15px; line-height: 1.8">Рекомендуется сушить изделие на плоской поверхности, а при машинной стирке использовать деликатную сушку при пониженной температуре.</h4>
 <h3 style="text-decoration: none; font-weight: 500; font-size: 19px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 0px">- Моющие стредства</h3>
-<h4 style="text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 20px; margin-top: 15px; line-height: 1.8">Используйте быстрорастворимые или специальные моющие средства. Чтобы ваше изделие не потеряло первоначальный цвет, а волокна оставались такими же прочными, не стоит пользоваться отбеливающими и хлоросодержащими средствами.</h4>
+<h4 style="text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 20px; margin-top: 15px; line-height: 1.8">Используйте специальные моющие средства. Чтобы ваше изделие не потеряло первоначальный цвет, а волокна оставались такими же прочными, не стоит пользоваться отбеливающими и хлоросодержащими средствами.</h4>
 <h3 style="text-decoration: none; font-weight: 500; font-size: 19px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 0px">- Не гладить</h3>
 <h4 style="text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 20px; margin-top: 15px; line-height: 1.8">При необходимости возможна глажка с особой аккуратностью, т.к. при больших температурах изделие может потерять свою форму и текстуру.</h4>
 
-<center><hr style="border: none; background-color: #1240AB; height: 3px; width: 80%"></center>
+<center><hr class="questions" style="border: none; background-color: #1240AB; height: 3px; width: 80%"></center>
+
+<div class="question" style="display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center">
+    <h2 style="color: #1240AB; text-decoration: none; font-weight: 550; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 10%; margin-bottom: 25px">Как осуществляется доставка?</h2>
+    <button style="border: none; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background-color: #1240AB; color: #fff; border-radius: 25px; font-size: 25px; margin-right: 10%"><ion-icon name="help-outline"></ion-icon></button>
+</div>
+<h4 style="text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 20px; margin-top: 15px; line-height: 1.8">Бесплатная доставка почтой россии занимает от 2 до 14 дней. указывайте свое настоящее имя, чтобы на почте не возникло проблем с получением.</h4>
+<h4 style="text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 20px; margin-top: 15px; line-height: 1.8">Если вы проживаете в городе Дубна (МО), то вы можете получить товары "из рук в руки".</h4>
+
+<center><hr class="questions" style="border: none; background-color: #1240AB; height: 3px; width: 80%"></center>
+
+<div class="question" style="display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center">
+    <h2 style="color: #1240AB; text-decoration: none; font-weight: 550; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 10%; margin-bottom: 25px">Как сделать возврат?</h2>
+    <button style="border: none; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background-color: #1240AB; color: #fff; border-radius: 25px; font-size: 25px; margin-right: 10%"><ion-icon name="help-outline"></ion-icon></button>
+</div>
+<h4 style="text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 20px; margin-top: 15px; line-height: 1.8">Возврат производится за ваш счет. при возникновении проблем с заказом свяжитесь с нами по телефону 8(800)888-88-88.</h4>
+<h4 style="text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 15%; margin-right: 35%; margin-bottom: 20px; margin-top: 15px; line-height: 1.8">Если вы получаете заказ в городе Дубна, вы можете вернуть товары сразу после примерки на месте.</h4>
+
+<center><hr class="questions" style="border: none; background-color: #1240AB; height: 3px; width: 80%"></center>
 
 <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script  nomodule  src = "https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"> </script>
