@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 style="margin-top: 40px; color: #1240AB; text-decoration: none; font-weight: 700; font-size: 25px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 10%; margin-bottom: 25px">Регистрация</h1>
+<form action="" method="post" style="margin-left: 12%; margin-bottom: 10px">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.surname.label(style="color: #000; text-decoration: none; font-weight: 500; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1") }}<br>
+        {{ form.surname(class="form-control", style="border-radius: 7px; text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; color: #000; opacity: 0.9; width: 78%; padding: 5px 10px; margin-top: 10px; margin-bottom: 10px") }}<br>
+        {% for error in form.surname.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>
+        {{ form.name.label(style="color: #000; text-decoration: none; font-weight: 500; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1") }}<br>
+        {{ form.name(class="form-control", style="border-radius: 7px; text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; color: #000; opacity: 0.9; width: 78%; padding: 5px 10px; margin-top: 10px; margin-bottom: 10px") }}<br>
+        {% for error in form.name.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>
+        {{ form.email.label(style="color: #000; text-decoration: none; font-weight: 500; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1") }}<br>
+        {{ form.email(class="form-control", type="email", style="border-radius: 7px; text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; color: #000; opacity: 0.9; width: 78%; padding: 5px 10px; margin-top: 10px; margin-bottom: 10px") }}<br>
+        {% for error in form.email.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>
+        {{ form.password.label(style="color: #000; text-decoration: none; font-weight: 500; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1") }}<br>
+        {{ form.password(class="form-control", type="password", style="border-radius: 7px; text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; color: #000; opacity: 0.9; width: 78%; padding: 5px 10px; margin-top: 10px; margin-bottom: 10px") }}<br>
+        {% for error in form.password.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>
+        {{ form.password_again.label(style="color: #000; text-decoration: none; font-weight: 500; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1") }}<br>
+        {{ form.password_again(class="form-control", type="password", style="border-radius: 7px; text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; color: #000; opacity: 0.9; width: 78%; padding: 5px 10px; margin-top: 10px; margin-bottom: 10px") }}<br>
+        {% for error in form.password_again.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>
+        {{ form.phone.label(style="color: #000; text-decoration: none; font-weight: 500; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1") }}<br>
+        {{ form.phone(class="form-control", style="border-radius: 7px; text-decoration: none; font-weight: 350; font-size: 17px; font-family:'GraphikTT',Arial,sans-serif; color: #000; opacity: 0.9; width: 78%; padding: 5px 10px; margin-top: 10px; margin-bottom: 10px") }}<br>
+        {% for error in form.phone.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>{{ form.submit(type="submit", class="btn btn-primary", style="margin-bottom: 20px; padding: 10px 20px; background-color: #B0BDED; border-radius: 100px; text-decoration: none; font-weight: 350; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; color: #1240AB; border: 0px") }}</p>
+    {{message}}
+</form>
+{% endblock %}

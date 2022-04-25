@@ -11,19 +11,25 @@
             <a name="header"></a>
             <hr class="questions" style="border: none; background-color: #f5f7ff; height: 100px; width: 100%; margin-left: 0; margin-right: 0">
             <nav class="navbar" style="position: relative; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -ms-flex-align: center; align-items: center; -ms-flex-pack: justify; justify-content: space-between; padding: .5rem 1rem; margin-top: -100px">
-                <a class="navbar-brand" href="#" style="font-weight: 700; font-size: 35px; text-decoration: none; color: #1240AB; transition: .5s" onmouseover="this.style.color='#0E2866'" onmouseout="this.style.color='#1240AB'">CROCHIS</a>
+                <a class="navbar-brand" href="/" style="font-weight: 700; font-size: 35px; text-decoration: none; color: #1240AB; transition: .5s" onmouseover="this.style.color='#0E2866'" onmouseout="this.style.color='#1240AB'">CROCHIS</a>
 
                 <div class="container" style="height: 70px; display: flex; justify-content: flex-end">
                     <nav class="navbar-wrap" style="display: flex; flex-flow: row nowrap">
                         <ui class="navbar-menu" style="list-style-type: none; padding-left: 0; margin-bottom: 0; margin-top: 20px">
-                            <li style="display: inline-block"><a href="#products" style="color: #1240AB; text-decoration: none; font-weight: 350; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; opacity: 0.7; transition: .5s; margin-left: 10px" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7; display: inline-block">товары</a> </li>
-                            <li style="display: inline-block"><a href="#questions" style="color: #1240AB; text-decoration: none; font-weight: 350; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; opacity: 0.7; transition: .5s; margin-left: 10px" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7; display: inline-block">вопросы</a> </li>
+                            <li style="display: inline-block"><a href="/#products" style="color: #1240AB; text-decoration: none; font-weight: 350; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; opacity: 0.7; transition: .5s; margin-left: 10px" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7; display: inline-block">товары</a> </li>
+                            <li style="display: inline-block"><a href="/#questions" style="color: #1240AB; text-decoration: none; font-weight: 350; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; opacity: 0.7; transition: .5s; margin-left: 10px" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7; display: inline-block">вопросы</a> </li>
                         </ui>
 
-                        <p style="margin-left: 10px; margin-top: 20px">
-                            <a class="btn btn-primary " href="/register" style="margin-left: 20px; padding: 10px 20px; background-color: #B0BDED; border-radius: 100px; text-decoration: none; font-weight: 350; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; color: #1240AB">регистрация</a>
-                            <a class="btn btn-success" href="/login" style="margin-left: 10px; padding: 10px 20px; background-color: #B0BDED; border-radius: 100px; text-decoration: none; font-weight: 350; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; color: #1240AB">войти</a>
-                        </p>
+                        {% if current_user.is_authenticated %}
+                            <p style="margin-left: 10px; margin-top: 20px">
+                                <a class="navbar-brand" href="/logout" style="margin-left: 10px; padding: 10px 20px; background-color: #B0BDED; border-radius: 100px; text-decoration: none; font-weight: 350; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; color: #1240AB">{{ current_user.name }}</a>
+                            </p>
+                        {% else %}
+                            <p style="margin-left: 10px; margin-top: 20px">
+                                <a class="btn btn-primary" href="/register" style="margin-left: 20px; padding: 10px 20px; background-color: #B0BDED; border-radius: 100px; text-decoration: none; font-weight: 350; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; color: #1240AB">регистрация</a>
+                                <a class="btn btn-success" href="/login" style="margin-left: 10px; padding: 10px 20px; background-color: #B0BDED; border-radius: 100px; text-decoration: none; font-weight: 350; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; color: #1240AB">войти</a>
+                            </p>
+                        {% endif %}
                     </nav>
                 </div>
             </nav>
@@ -36,12 +42,17 @@
 
         <footer style="width: 100%; float: left; padding: 0%">
             <a name="footer"></a>
-            <hr style="border: none; background-color: #1240AB; height: 100px; width: 100%; margin-bottom: 0px; margin-left: 0; margin-right: 0">
-            <div style="margin-top: -95px; margin-left: 10%">
+            <hr style="border: none; background-color: #1240AB; height: 200px; width: 100%; margin-bottom: 0px; margin-left: 0; margin-right: 0">
+            <div style="margin-top: -145px; margin-left: 10%">
                 <h2 style="color: #fff; text-decoration: none; font-weight: 500; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-bottom: 0px">Свяжитесь с нами:</h2>
-                <h2 style="color: #fff; text-decoration: none; font-weight: 700; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-top: 8px">8 (800) 888-88-88</h2>
+                <nav style="position: relative; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -ms-flex-align: center; align-items: center; -ms-flex-pack: justify; justify-content: space-between; padding: .5rem 1rem">
+                    <h2 style="margin-left: -14px; color: #fff; text-decoration: none; font-weight: 700; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-top: 8px">8 (800) 888-88-88</h2>
+                    <h2 style="color: #fff; text-decoration: none; font-weight: 700; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-top: 8px; margin-right: 10%">crochis@email.ru</h2>
+                </nav>
             </div>
         </footer>
 
+    <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script  nomodule  src = "https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"> </script>
     </body>
 </html>
