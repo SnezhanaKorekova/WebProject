@@ -1,28 +1,41 @@
 {% extends "base.html" %}
 
 {% block content %}
-<center><table class="container" cellpadding="30" style="margin-top: 30px">
+<center><table class="container" cellpadding="7%" style="margin-top: 40px; width: 90%">
     <tr class="row">
         <a name="products"></a>
         {% for item in products %}
             {% if item[3] != "img\\img5.jpg" and item[3] != "img\\img6.jpg" %}
-                <td class="col">
+                <td class="col" width="25%">
                     <div class="product" style="margin-bottom: 30px">
                         <div class="image" style="margin-bottom: 10px">
                             {% if item[3] == "img\\img1.jpg" %}
-                                <img src="/static/img/img1.jpg" height="400" width="300" style="object-fit: cover; border-radius: 7px">
+                                <img src="/static/img/img1.jpg" width="100%" style="object-fit: cover; border-radius: 7px">
                             {% elif item[3] == "img\\img2.jpg"%}
-                                <img src="/static/img/img2.jpg" height="400" width="300" style="object-fit: cover; border-radius: 7px">
+                                <img src="/static/img/img2.jpg" width="100%" style="object-fit: cover; border-radius: 7px">
                             {% elif item[3] == "img\\img3.jpg"%}
-                                <img src="/static/img/img3.jpg" height="400" width="300" style="object-fit: cover; border-radius: 7px">
+                                <img src="/static/img/img3.jpg" width="100%" style="object-fit: cover; border-radius: 7px">
                             {% else %}
-                                <img src="/static/img/img4.jpg" height="400" width="300" style="object-fit: cover; border-radius: 7px">
+                                <img src="/static/img/img4.jpg" width="100%" style="object-fit: cover; border-radius: 7px">
                             {% endif %}
                         </div>
 
                         <div class="info">
-                            <h3 style="text-decoration: none; font-weight: 500; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: -15px">{{ item[0] }}</h3>
-                            <h4 style="text-decoration: none; font-weight: 350; font-size: 18px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: 5px">Состав: <small style="opacity: 0.8">{{ item[1] }}</small></h4>
+                            {% if item[3] == "img\\img1.jpg" %}
+                                <h3 style="text-decoration: none; font-weight: 500; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: -15px">{{ item[0] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            {% elif item[3] == "img\\img2.jpg"%}
+                                <h3 style="text-decoration: none; font-weight: 500; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: -15px">{{ item[0] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            {% elif item[3] == "img\\img3.jpg"%}
+                                <h3 style="text-decoration: none; font-weight: 500; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: -15px">{{ item[0] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            {% elif item[3] == "img\\img4.jpg"%}
+                                <h3 style="text-decoration: none; font-weight: 500; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: -15px">{{ item[0] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            {% endif %}
+
+                            {% if item[3] == "img\\img1.jpg" or item[3] == "img\\img2.jpg" or item[3] == "img\\img3.jpg" %}
+                                <h4 style="text-decoration: none; font-weight: 350; font-size: 18px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: 5px">Состав: <small style="opacity: 0.8">{{ item[1] }}</small></h4>
+                            {% elif item[3] == "img\\img4.jpg"%}
+                                <h4 style="text-decoration: none; font-weight: 350; font-size: 18px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: 5px">Состав: <small style="opacity: 0.8">{{ item[1] }}&nbsp;</small></h4>
+                            {% endif %}
 
                             <div class="product_info" style="display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center">
                                 <span class="price" style="font-weight: 700; font-size: 18px; font-family:'GraphikTT',Arial,sans-serif">{{ item[2] }}<small style="opacity: 0.9"> ₽</small></span>
@@ -39,19 +52,26 @@
         <a name="products"></a>
         {% for item in products %}
             {% if item[3] == "img\\img5.jpg" or item[3] == "img\\img6.jpg" %}
-                <td class="col">
+                <td class="col" width="25%">
                     <div class="product" style="margin-bottom: 30px">
                         <div class="image" style="margin-bottom: 10px">
                             {% if item[3] == "img\\img5.jpg" %}
-                                <img src="/static/img/img5.jpg" height="400" width="300" style="object-fit: cover; border-radius: 7px">
+                                <img src="/static/img/img5.jpg" width="100%" style="object-fit: cover; border-radius: 7px">
                             {% elif item[3] == "img\\img6.jpg"%}
-                                <img src="/static/img/img6.jpg" height="400" width="300" style="object-fit: cover; border-radius: 7px">
+                                <img src="/static/img/img6.jpg" width="100%" style="object-fit: cover; border-radius: 7px">
                             {% endif %}
                         </div>
 
                         <div class="info">
-                            <h3 style="text-decoration: none; font-weight: 500; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: -15px">{{ item[0] }}</h3>
-                            <h4 style="text-decoration: none; font-weight: 350; font-size: 18px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: 5px">Состав: <small style="opacity: 0.8">{{ item[1] }}</small></h4>
+                            {% if item[3] == "img\\img5.jpg" %}
+                                <h3 style="text-decoration: none; font-weight: 500; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: -15px">{{ item[0] }}</h3>
+                            {% elif item[3] == "img\\img6.jpg"%}
+                                <h3 style="text-decoration: none; font-weight: 500; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: -15px">{{ item[0] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            {% endif %}
+
+                            {% if item[3] == "img\\img5.jpg" or item[3] == "img\\img6.jpg" %}
+                                <h4 style="text-decoration: none; font-weight: 350; font-size: 18px; font-family:'GraphikTT',Arial,sans-serif; margin-bottom: 5px">Состав: <small style="opacity: 0.8">{{ item[1] }}&nbsp;&nbsp;&nbsp;&nbsp;</small></h4>
+                            {% endif %}
 
                             <div class="product_info" style="display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center">
                                 <span class="price" style="font-weight: 700; font-size: 18px; font-family:'GraphikTT',Arial,sans-serif">{{ item[2] }}<small style="opacity: 0.9"> ₽</small></span>
@@ -63,10 +83,11 @@
             {% endif %}
         {% endfor %}
     </tr>
+
 </table></center>
 
 <a name="questions"></a>
-<center><hr class="questions" style="border: none; background-color: #1240AB; height: 3px; width: 80%"></center>
+<center><hr class="questions" style="border: none; background-color: #1240AB; height: 3px; width: 80%; margin-top: 40px"></center>
 
 <div class="question" style="display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center">
     <h2 style="color: #1240AB; text-decoration: none; font-weight: 550; font-size: 20px; font-family:'GraphikTT',Arial,sans-serif; opacity: 1; margin-left: 10%; margin-bottom: 25px">Как ухаживать за вязанными вещами?</h2>

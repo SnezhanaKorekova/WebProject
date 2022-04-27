@@ -4,6 +4,7 @@ from data import db_session
 from data.users import User
 from data.products import Products
 from forms.user import RegisterForm, LoginForm
+from data.api import work_with_api
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -21,6 +22,9 @@ def logout():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    # получение полного адреса города Дубна
+    full_adress = work_with_api('Дубна')
+
     form = LoginForm()
     if form.validate_on_submit():
         db_sess = db_session.create_session()
@@ -31,7 +35,7 @@ def login():
         return render_template('login.html',
                                message="Неправильный логин или пароль",
                                form=form)
-    return render_template('login.html', title='Авторизация', form=form)
+    return render_template('login.html', title='Авторизация', form=form, address=full_adress)
 
 
 @login_manager.user_loader
@@ -42,17 +46,20 @@ def load_user(user_id):
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    # получение полного адреса города Дубна
+    full_adress = work_with_api('Дубна')
+
     form = RegisterForm()
     if form.validate_on_submit():
         if form.password.data != form.password_again.data:
             return render_template('register.html', title='Регистрация',
                                    form=form,
-                                   message="Пароли не совпадают")
+                                   message="Пароли не совпадают", address=full_adress)
         db_sess = db_session.create_session()
         if db_sess.query(User).filter(User.email == form.email.data).first():
             return render_template('register.html', title='Регистрация',
                                    form=form,
-                                   message="Такой пользователь уже есть")
+                                   message="Такой пользователь уже есть", address=full_adress)
         user = User(
             surname=form.surname.data,
             name=form.name.data,
@@ -63,18 +70,23 @@ def register():
         db_sess.add(user)
         db_sess.commit()
         return redirect('/login')
-    return render_template('register.html', title='Регистрация', form=form)
+
+    return render_template('register.html', title='Регистрация', form=form, address=full_adress)
 
 
 @app.route('/')
 @app.route('/index')
 def index():
+    # получение полного адреса города Дубна
+    full_adress = work_with_api('Дубна')
+
     db_session.global_init("db/products.db")
     db_sess = db_session.create_session()
     products = []
     for product in db_sess.query(Products).all():
         products.append((product.title, product.composition, product.price, product.path_to_photo))
-    return render_template('index.html', products=products)
+
+    return render_template('index.html', products=products, address=full_adress)
 
 
 def add_user(surname, name, email, phone):
@@ -102,6 +114,9 @@ def add_product(title, composition, price, path_to_photo):
 def main():
     # db_session.global_init("db/products.db")
     # db_sess = db_session.create_session()
+
+    # создание изображения по адресу "Дубна"
+    work_with_api('Дубна', new_picture=True)
 
     app.run()
 
