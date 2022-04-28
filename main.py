@@ -12,6 +12,9 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+# получение полного адреса города Дубна и создание изображения по адресу "Дубна"
+full_adress = work_with_api('Дубна', new_picture=True)
+
 
 @app.route('/logout')
 @login_required
@@ -22,9 +25,6 @@ def logout():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    # получение полного адреса города Дубна
-    full_adress = work_with_api('Дубна')
-
     form = LoginForm()
     if form.validate_on_submit():
         db_sess = db_session.create_session()
@@ -46,9 +46,6 @@ def load_user(user_id):
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    # получение полного адреса города Дубна
-    full_adress = work_with_api('Дубна')
-
     form = RegisterForm()
     if form.validate_on_submit():
         if form.password.data != form.password_again.data:
@@ -77,9 +74,6 @@ def register():
 @app.route('/')
 @app.route('/index')
 def index():
-    # получение полного адреса города Дубна
-    full_adress = work_with_api('Дубна')
-
     db_session.global_init("db/products.db")
     db_sess = db_session.create_session()
     products = []
@@ -114,9 +108,6 @@ def add_product(title, composition, price, path_to_photo):
 def main():
     # db_session.global_init("db/products.db")
     # db_sess = db_session.create_session()
-
-    # создание изображения по адресу "Дубна"
-    work_with_api('Дубна', new_picture=True)
 
     app.run()
 

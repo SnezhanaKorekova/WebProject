@@ -37,6 +37,6 @@ def picture(coord_x, coord_y, scale, space='map', new_pt=False):
 def work_with_api(title_find_place, new_picture=False):
     coord_x, coord_y, full_address = find_place(title_find_place)
     if new_picture:
-        picture(coord_x, coord_y, 0.3)
+        picture(coord_x, coord_y, 0.2)
 
     return full_address
